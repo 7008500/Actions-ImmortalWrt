@@ -3,9 +3,11 @@
 # git clone --depth=1 https://github.com/EOYOHOO/UA2F.git package/UA2F
 # git clone --depth=1 https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
 ./scripts/feeds update -a
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
-rm -rf feeds/packages/net/mosdns && cp -rf ./feeds/smpackage/mosdns ./feeds/packages/net/mosdns
-curl -s https://raw.githubusercontent.com/sbwml/r4s_build_script/4a9fafefd67172e074fa62cbe3570c4e197376b3/openwrt/patch/apk-tools/9999-hack-for-linux-pre-releases.patch > package/system/apk/patches/9999-hack-for-linux-pre-releases.patch
+sed -i 's/192.168.1.1/10.0.0.1/g' immortalwrt/package/base-files/files/bin/config_generate
+sed -i 's/192.168./10.0./g' immortalwrt/package/base-files/files/bin/config_generate
+sed -i '/spi-max-frequency/a\\t\tbroken-flash-reset;' immortalwrt/target/linux/ramips/dts/mt7621_phicomm_k2p.dts
+sed -i 's/0xf60000/0x1f60000/g' immortalwrt/target/linux/ramips/dts/mt7621_phicomm_k2p.dts
+sed -i 's/15744k/32448k/g' immortalwrt/target/linux/ramips/image/mt7621.m
 ./scripts/feeds install -a
 cp -f ../.config .config
 make defconfig

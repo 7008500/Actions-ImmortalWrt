@@ -97,7 +97,7 @@ jobs:
         run: make -j$(nproc) || make -j1 V=s
 
          
-    - name : Upload artifact
+    - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
         name: openwrt

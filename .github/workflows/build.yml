@@ -97,29 +97,8 @@ jobs:
         run: make -j$(nproc) || make -j1 V=s
 
          
-      - name: 上传编译结果到 Artifact (Upload build result to Artifact)
-        uses: actions/upload-artifact@v4
-        with:
-          name: ImmortalWrt-build-result
-          path: ImmortalWrt/bin/targets
-
-      - name: 新建一个release (Create Release)
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-
-      - name: 上传编译结果 （Upload Release Asset）
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ImmortalWrt/bin/targets/ImmortalWrt-build-result
-          asset_name: ImmortalWrt-build-result
-          asset_content_type: application/zip
+    - name : Upload artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: openwrt
+        path: openwrt/bin

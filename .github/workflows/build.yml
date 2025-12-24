@@ -95,8 +95,10 @@ jobs:
       - name: 编译 ImmortalWrt (Build ImmortalWrt)
         working-directory: ImmortalWrt
         run: make -j$(nproc) || make -j1 V=s
-- name: Upload artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: openwrt
-        path: openwrt/bin
+
+         
+      - name: 上传编译结果到 Artifact (Upload build result to Artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ImmortalWrt-build-result
+          path: ImmortalWrt/bin

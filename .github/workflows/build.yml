@@ -17,7 +17,7 @@ on:
         description: 'ImmortalWrt 仓库的分支 (Branch of ImmortalWrt repo)'
         type: string
         required: true
-        default: 'master'
+        default: 'v24.10.4'
       ssh:
         description: '使用 ssh 连接到编译环境 (Connect to the build environment using ssh)'
         type: boolean

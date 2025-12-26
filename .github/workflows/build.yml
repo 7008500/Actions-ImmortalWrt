@@ -7,7 +7,7 @@ on:
         description: 'ImmortalWrt 仓库的拥有者 (Owner of ImmortalWrt repo)'
         type: string
         required: true
-        default: '7008500'
+        default: 'ImmortalWrt'
       repo:
         description: 'ImmortalWrt 仓库的名字 (Name of ImmortalWrt repo)'
         type: string

@@ -1,4 +1,4 @@
-name: 🚀 编译 (Build)
+name: K2P
 
 on:
   workflow_dispatch:

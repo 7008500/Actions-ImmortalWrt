@@ -61,14 +61,14 @@ jobs:
           path: ImmortalWrt
 
       - name: 复制当前仓库的配置文件到 ImmortalWrt 仓库  (Copy current repo config to ImmortalWrt repo)
-        run: cp -f .config(k2p) feeds.conf.default diy(k2p).sh ImmortalWrt/
+        run: cp -f .configk2p feeds.conf.default diyk2p.sh ImmortalWrt/
          
       - name: 运行 diy.sh (Run diy.sh)
         if: ${{inputs.ssh == false}}
         working-directory: ImmortalWrt
         run: |
-          chmod +x diy(k2p).sh
-          ./diy(k2p).sh
+          chmod +x diyk2p.sh
+          ./diyk2p.sh
 
 #      - name: 开启 SSH 服务 (Start SSH service)
 #        if: ${{inputs.ssh == true}}
@@ -89,7 +89,7 @@ jobs:
           name: config-before-build
           include-hidden-files: true
           path: |
-            ImmortalWrt/.config(k2p)
+            ImmortalWrt/.configk2p
             ImmortalWrt/feeds.conf.default
 
       - name: 编译 ImmortalWrt (Build ImmortalWrt)

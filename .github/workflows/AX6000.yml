@@ -7,17 +7,17 @@ on:
         description: 'ImmortalWrt 仓库的拥有者 (Owner of ImmortalWrt repo)'
         type: string
         required: true
-        default: 'ImmortalWrt'
+        default: 'padavanonly'
       repo:
         description: 'ImmortalWrt 仓库的名字 (Name of ImmortalWrt repo)'
         type: string
         required: true
-        default: 'immortalwrt'
+        default: 'immortalwrt-mt798x-6.6'
       branch:
         description: 'ImmortalWrt 仓库的分支 (Branch of ImmortalWrt repo)'
         type: string
         required: true
-        default: 'v24.10.4'
+        default: 'openwrt-24.10-6.6'
       ssh:
         description: '使用 ssh 连接到编译环境 (Connect to the build environment using ssh)'
         type: boolean

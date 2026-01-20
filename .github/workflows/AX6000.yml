@@ -61,14 +61,14 @@ jobs:
           path: ImmortalWrt
 
       - name: 复制当前仓库的配置文件到 ImmortalWrt 仓库  (Copy current repo config to ImmortalWrt repo)
-        run: cp -f .configax6000 feeds.conf.default diyax6000.sh ImmortalWrt/
+        run: cp -f .config feeds.conf.default diy.sh ImmortalWrt/
          
       - name: 运行 diy.sh (Run diy.sh)
         if: ${{inputs.ssh == false}}
         working-directory: ImmortalWrt
         run: |
-          chmod +x diyax6000.sh
-          ./diyax6000.sh
+          chmod +x diy.sh
+          ./diy.sh
 
 #      - name: 开启 SSH 服务 (Start SSH service)
 #        if: ${{inputs.ssh == true}}
@@ -89,7 +89,7 @@ jobs:
           name: config-before-build
           include-hidden-files: true
           path: |
-            ImmortalWrt/.configax6000
+            ImmortalWrt/.config
             ImmortalWrt/feeds.conf.default
 
       - name: 编译 ImmortalWrt (Build ImmortalWrt)
